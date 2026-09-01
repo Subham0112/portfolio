@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio — Full-Stack Developer
 
-## Getting Started
+A personal portfolio built with **Next.js 16 (App Router)**, **TypeScript**, **Tailwind CSS v4**, **Framer Motion**, and **Lucide icons**. Dark-first theme with an optional light mode.
 
-First, run the development server:
+## Quick start
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # production build
+npm run lint     # ESLint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Pages
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Route                  | Description                                              |
+| ---------------------- | -------------------------------------------------------- |
+| `/`                    | Home — hero, intro, skills strip, featured projects, experience, CTA |
+| `/about`               | Background, journey, strengths, education                |
+| `/projects`            | Project grid with category filters                       |
+| `/projects/[slug]`     | Per-project detail pages (static, pre-generated)         |
+| `/experience`          | Internship & freelance experience                        |
+| `/skills`              | Categorized skills with levels and context               |
+| `/contact`             | Contact form (UI complete, backend is a method hook) + socials |
+| `/resume`              | Résumé preview, downloadable via the print dialog        |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Before applying — replace the placeholders
 
-## Learn More
+All content lives in `data/`. Every value enclosed in `[...]` or prefixed `YOUR_` is a placeholder:
 
-To learn more about Next.js, take a look at the following resources:
+- `data/site.ts` — name, email, location, social links (set `NEXT_PUBLIC_SITE_URL` for SEO/OG tags)
+- `data/projects.ts` — project details; set `liveUrl` to enable demo buttons
+- `data/experience.ts` — roles, companies, dates, responsibilities
+- `data/education.ts` — degree, university, coursework
+- `data/skills.ts` — skill levels and context lines
+- `public/og.svg` — replace with a real 1200×630 PNG (`/og.png`) for social shares
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Dates, locations and descriptions in the data files are template examples — make them accurate before applying.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Notes
 
-## Deploy on Vercel
+- The contact form validates client-side and simulates submission. To make it live, POST the fields to your own route handler or email service from `components/contact/contact-form.tsx`.
+- "Download PDF" on `/resume` uses the browser print dialog (choose **Save as PDF**). The document is print-optimized.
+- Dark mode is the default and is applied before hydration via an inline script in `app/layout.tsx` — no FOUC.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+app/            routes, layout, template (page transitions), not-found, sitemap, robots
+components/     layout/ · ui/ · shared/ · home/ · project/ · contact/ · resume/
+data/           all content (never mix UI with content)
+lib/            cn() helper + project helpers
+```
