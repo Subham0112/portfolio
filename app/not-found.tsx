@@ -26,7 +26,7 @@ export default function NotFound() {
           <ArrowLeft className="h-4 w-4" aria-hidden />
           Back home
         </Button>
-        <Button href="/projects" variant="outline">
+        <Button href="/#projects" variant="outline">
           View projects
         </Button>
       </div>

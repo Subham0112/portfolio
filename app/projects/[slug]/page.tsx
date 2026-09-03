@@ -55,7 +55,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       <Container className="pb-16 pt-32 sm:pb-20 sm:pt-40">
         <Reveal>
           <Link
-            href="/projects"
+            href="/#projects"
             className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm text-muted transition-colors hover:bg-surface-2 hover:text-fg"
           >
             <ArrowLeft className="h-4 w-4" aria-hidden />

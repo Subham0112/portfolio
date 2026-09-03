@@ -17,16 +17,16 @@ export const site = {
   tagline:
     "I design and build complete web applications — from database schema to polished, responsive interfaces.",
   shortBio:
-    "Junior full-stack developer focused on the MERN stack. I enjoy turning product ideas into clean, working software — realtime features, REST APIs, and carefully-built interfaces.",
-  email: "YOUR_EMAIL@example.com",
-  location: "[City, Country]",
+    "Full-stack developer focused on clean, working software, web applications — realtime features, REST APIs, and carefully-built interfaces.",
+  email: "khatiwadasubham1@gmail.com",
+  location: "Biratnagar, Nepal",
   available: true,
-  availabilityNote: "Open to junior full-stack developer roles",
+  availabilityNote: "Open to full-stack developer roles",
   socials: [
     {
       key: "github",
       label: "GitHub",
-      href: "https://github.com/YOUR_GITHUB_USERNAME",
+      href: "https://github.com/Subham0112/",
     },
     {
       key: "linkedin",
@@ -47,10 +47,10 @@ export const site = {
 };
 
 export const navLinks: NavLink[] = [
-  { href: "/about", label: "About" },
-  { href: "/projects", label: "Projects" },
-  { href: "/experience", label: "Experience" },
-  { href: "/skills", label: "Skills" },
-  { href: "/resume", label: "Resume" },
-  { href: "/contact", label: "Contact" },
+  { href: "#about", label: "About" },
+  { href: "#education", label: "Education" },
+  { href: "#experience", label: "Experience" },
+  { href: "#skills", label: "Skills" },
+  { href: "#projects", label: "Projects" },
+  { href: "#contact", label: "Contact" },
 ];

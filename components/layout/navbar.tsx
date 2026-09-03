@@ -1,8 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { navLinks, site } from "@/data/site";
@@ -27,26 +26,58 @@ function Logo() {
 }
 
 function NavLinks({ onNavigate }: { onNavigate?: () => void }) {
-  const pathname = usePathname();
+  const [active, setActive] = useState<string>("");
 
-  function isActive(href: string) {
-    return pathname === href || pathname.startsWith(`${href}/`);
-  }
+  useEffect(() => {
+    const sections = navLinks
+      .map((link) => {
+        const id = link.href.replace("#", "");
+        const el = document.getElementById(id);
+        return el ? { id, el } : null;
+      })
+      .filter(Boolean) as Array<{ id: string; el: HTMLElement }>;
+
+    if (sections.length === 0) return;
+
+    let ticking = false;
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const navBottom = 80;
+        let current = sections[0].id;
+        for (const { id, el } of sections) {
+          if (el.getBoundingClientRect().top <= navBottom + 40) {
+            current = id;
+          }
+        }
+        setActive((prev) => {
+          const next = `#${current}`;
+          return prev === next ? prev : next;
+        });
+        ticking = false;
+      });
+    }
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <nav aria-label="Primary" className="flex items-center">
       <ul className="flex items-center gap-1">
         {navLinks.map((link) => {
-          const active = isActive(link.href);
+          const isActive = active === link.href;
           return (
             <li key={link.href}>
               <Link
                 href={link.href}
                 onClick={onNavigate}
-                aria-current={active ? "page" : undefined}
+                aria-current={isActive ? "true" : undefined}
                 className={cn(
                   "relative rounded-full px-3.5 py-2 text-sm transition-colors duration-200",
-                  active
+                  isActive
                     ? "font-medium text-fg"
                     : "text-muted hover:text-fg",
                 )}
@@ -55,7 +86,7 @@ function NavLinks({ onNavigate }: { onNavigate?: () => void }) {
                 <span
                   className={cn(
                     "absolute inset-x-3.5 -bottom-px h-px rounded-full bg-gradient-to-r from-brand-400 to-sky-400 transition-transform duration-200",
-                    active ? "scale-x-100" : "scale-x-0",
+                    isActive ? "scale-x-100" : "scale-x-0",
                   )}
                   aria-hidden
                 />
@@ -69,16 +100,10 @@ function NavLinks({ onNavigate }: { onNavigate?: () => void }) {
 }
 
 export function Navbar() {
-  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [previousPathname, setPreviousPathname] = useState(pathname);
   const reduceMotion = useReducedMotion();
-
-  if (pathname !== previousPathname) {
-    setPreviousPathname(pathname);
-    setMenuOpen(false);
-  }
+  const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     function onScroll() {
@@ -104,6 +129,8 @@ export function Navbar() {
     };
   }, [menuOpen]);
 
+  const handleNavigate = useCallback(() => setMenuOpen(false), []);
+
   return (
     <header className="print-hidden fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-5 sm:pt-4">
       <div
@@ -124,7 +151,7 @@ export function Navbar() {
           <div className="flex items-center gap-2">
             <ThemeToggle className="hidden sm:flex" />
             <Link
-              href="/contact"
+              href="#contact"
               className="hidden items-center gap-1.5 rounded-full bg-brand-500 px-4 py-2 text-xs font-semibold text-brand-950 transition-colors duration-200 hover:bg-brand-400 md:inline-flex"
             >
               Let&apos;s talk
@@ -150,6 +177,7 @@ export function Navbar() {
         <AnimatePresence>
           {menuOpen ? (
             <motion.div
+              ref={menuRef}
               id="mobile-menu"
               initial={reduceMotion ? false : { opacity: 0, y: -8 }}
               animate={{ opacity: 1, y: 0 }}
@@ -162,6 +190,7 @@ export function Navbar() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
+                      onClick={handleNavigate}
                       className="flex items-center justify-between rounded-lg px-2 py-3 text-sm font-medium text-fg transition-colors hover:bg-surface-2"
                     >
                       <span>{link.label}</span>
@@ -175,7 +204,8 @@ export function Navbar() {
               <div className="mt-4 flex items-center justify-between border-t border-edge pt-4">
                 <ThemeToggle />
                 <Link
-                  href="/contact"
+                  href="#contact"
+                  onClick={handleNavigate}
                   className="inline-flex h-10 items-center gap-1.5 rounded-full bg-brand-500 px-5 text-sm font-semibold text-brand-950 transition-colors hover:bg-brand-400"
                 >
                   Let&apos;s talk

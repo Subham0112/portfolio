@@ -84,7 +84,7 @@ export function ProjectsGrid({ projects }: ProjectsGridProps) {
       )}
 
       <a
-        href="/contact"
+        href="#contact"
         className="mt-8 flex flex-col items-start justify-between gap-4 rounded-2xl border border-dashed border-edge-strong bg-surface/60 p-6 transition-colors duration-300 hover:border-brand-500/40 sm:flex-row sm:items-center"
       >
         <div>

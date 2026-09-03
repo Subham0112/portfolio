@@ -43,11 +43,17 @@ export function Button(props: ButtonProps) {
   const classes = cn(base, variants[variant], sizes[size], className);
 
   if ("href" in rest && rest.href !== undefined) {
-    const { href, ...anchorProps } = rest;
-    const isExternal = href.startsWith("http") || href.startsWith("mailto:");
+    const { href, download, ...anchorProps } = rest;
+    const isExternal =
+      href.startsWith("http") || href.startsWith("mailto:") || Boolean(download);
     if (isExternal) {
       return (
-        <a href={href} className={classes} {...anchorProps}>
+        <a
+          href={href}
+          download={download}
+          className={classes}
+          {...anchorProps}
+        >
           {children}
         </a>
       );
