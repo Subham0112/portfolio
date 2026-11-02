@@ -15,10 +15,8 @@ function Logo() {
       aria-label="Back to home"
       className="group flex items-center gap-2.5"
     >
-      <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-brand-400 to-sky-500 font-mono text-sm font-bold text-brand-950 shadow-[0_4px_16px_-4px_rgba(45,212,191,0.6)]">
-        s
-      </span>
-      <span className="text-sm font-semibold tracking-tight text-fg">
+     
+      <span className="text-lg text-brand-600 dark:text-brand-400 font-semibold tracking-tight ">
         {site.name}
       </span>
     </Link>

@@ -18,6 +18,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         <ProjectVisual
           name={project.name}
           tone={project.tone}
+          image={project.image}
           className="aspect-[16/10]"
         />
       </div>
@@ -26,7 +27,6 @@ export function ProjectCard({ project }: ProjectCardProps) {
           <p className="font-mono text-[11px] font-medium uppercase tracking-[0.16em] text-brand-600 dark:text-brand-400">
             {projectCategoryLabel(project.category)}
           </p>
-          <p className="font-mono text-[11px] text-faint">{project.year}</p>
         </div>
         <h3 className="mt-3 flex items-center gap-1.5 text-lg font-semibold tracking-tight text-fg">
           {project.name}

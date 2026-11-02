@@ -1,4 +1,4 @@
-export type SocialKey = "github" | "linkedin" | "x" | "email";
+export type SocialKey = "github" | "linkedin" | "email";
 
 export interface SocialLink {
   key: SocialKey;
@@ -20,8 +20,6 @@ export const site = {
     "Full-stack developer focused on clean, working software, web applications — realtime features, REST APIs, and carefully-built interfaces.",
   email: "khatiwadasubham1@gmail.com",
   location: "Biratnagar, Nepal",
-  available: true,
-  availabilityNote: "Open to full-stack developer roles",
   socials: [
     {
       key: "github",
@@ -31,17 +29,12 @@ export const site = {
     {
       key: "linkedin",
       label: "LinkedIn",
-      href: "https://linkedin.com/in/YOUR_LINKEDIN_USERNAME",
-    },
-    {
-      key: "x",
-      label: "X (Twitter)",
-      href: "https://x.com/YOUR_X_HANDLE",
+      href: "https://www.linkedin.com/in/subham-khatiwada-ba6a152a1",
     },
     {
       key: "email",
       label: "Email",
-      href: "mailto:YOUR_EMAIL@example.com",
+      href: "mailto:khatiwadasubham1@gmail.com",
     },
   ] satisfies SocialLink[],
 };

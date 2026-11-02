@@ -1,6 +1,7 @@
 import Image from "next/image";
 import {
   ArrowRight,
+  ArrowUpRight,
   Brain,
   Briefcase,
   CalendarClock,
@@ -9,79 +10,68 @@ import {
   GraduationCap,
   Mail,
   MapPin,
-  Telescope,
   User,
   Zap,
 } from "lucide-react";
 import { education } from "@/data/education";
 import { experience } from "@/data/experience";
 import { projects } from "@/data/projects";
-import { skillCategories } from "@/data/skills";
 import { site } from "@/data/site";
-import { skillIcons } from "@/components/shared/icon-map";
-import { SocialLinks } from "@/components/shared/social-links";
-import { ContactForm } from "@/components/contact/contact-form";
+import { socialIcons } from "@/components/shared/social-icons";
 import { ProjectsGrid } from "@/components/project/projects-grid";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
 import { Section } from "@/components/ui/section";
 import { Hero } from "@/components/home/hero";
-import { cn } from "@/lib/utils";
+import { Skills } from "@/components/home/skills";
 
 const stats = [
-  { icon: User, label: "Experience", value: "1+ Years" },
+  { icon: User, label: "Experience", value: "6 Months Professional" },
   { icon: Briefcase, label: "Projects", value: "4+ Completed" },
 ];
+
+const contactDescriptions = {
+  github: "Explore my code and shipped projects",
+  linkedin: "Connect with me professionally",
+  email: "Send me a message directly",
+} as const;
 
 const strengths = [
   {
     icon: Code2,
-    title: "End-to-end building",
-    text: "Comfortable across the whole stack — MongoDB and Postgres schemas, Express routes, React components and deployment config.",
+    title: "End to end building",
+    text: "I'm comfortable across the whole stack, from MongoDB and Postgres schemas to Express routes, React components and deployment config.",
   },
   {
     icon: Zap,
-    title: "Realtime & auth",
-    text: "JWT auth flows and WebSocket realtime features are my comfort zone, with security in mind from the start.",
+    title: "Realtime and auth",
+    text: "JWT login flows and WebSocket features are where I feel most at home, and I think about security from the first commit.",
   },
   {
     icon: Brain,
     title: "Clean, readable code",
-    text: "Named things, small components, typed data. I write code the next person (and future me) can understand.",
+    text: "Clear names, small components and typed data. I try to write code that the next person can understand without asking me.",
   },
   {
     icon: Compass,
     title: "Product thinking",
-    text: "I ask why a feature exists before building it, and keep UX details — states, errors, empty screens — in mind.",
+    text: "I ask why a feature exists before I build it, and I care about loading states, error messages and empty screens.",
   },
 ];
-
-const currentlyLearning = [
-  "Docker & containers",
-  "AWS fundamentals",
-  "GraphQL",
-  "Redis",
-  "CI/CD pipelines",
-];
-
-const levelTone = {
-  Advanced: "brand",
-  Proficient: "neutral",
-  "Working knowledge": "faint",
-} as const;
 
 export default function HomePage() {
   return (
     <>
       <Hero />
 
+      {/* About */}
       <Section id="about">
         <div className="grid items-start gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
           <Reveal>
-            <div className="relative mx-auto w-full max-w-sm lg:mx-0">
+            <div className="relative mx-auto w-full max-w-xs pb-4 pr-4 sm:max-w-sm lg:mx-0">
               <div
-                className="absolute -bottom-4 -right-4 h-full w-full rounded-2xl border-2 border-brand-500/30"
+                className="absolute bottom-0 right-0 h-[calc(100%-1rem)] w-[calc(100%-1rem)] rounded-2xl border-2 border-brand-500/30"
                 aria-hidden
               />
               <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-edge bg-surface-2">
@@ -89,7 +79,7 @@ export default function HomePage() {
                   src="/images/mypic.jpg"
                   alt={site.name}
                   fill
-                  sizes="(min-width: 1024px) 384px, 60vw"
+                  sizes="(min-width: 1024px) 384px, 70vw"
                   className="object-cover"
                   priority
                 />
@@ -99,18 +89,29 @@ export default function HomePage() {
 
           <div className="space-y-8">
             <Reveal delay={0.06}>
-              <p className="text-base leading-relaxed text-muted">
-                I&apos;m {site.name}, a full-stack developer based in{" "}
-                {site.location}. I build complete web applications — JWT-secured
-                APIs in Node.js and Express, paired with responsive React
-                interfaces — using MongoDB, PostgreSQL and Prisma. I care about
-                clean architecture, realtime features, and shipping things
-                people can actually use.
-              </p>
+              <div className="space-y-4 text-base leading-relaxed text-muted">
+  <p>
+   Full Stack Developer with hands on experience in developing responsive web applications and contributing to real world software projects. Skilled in building user friendly interfaces, integrating backend services, developing RESTful APIs, and working with databases. 
+  </p>
+  <p>
+    My core stack is React, Next.js and TypeScript on the frontend, with
+    Node.js and Express on the backend. I work with both MongoDB and
+    PostgreSQL through Prisma, and I&apos;m comfortable with JWT
+    authentication, role based access and WebSocket powered realtime
+    features.
+  </p>
+  <p>
+    I care about clean architecture, readable code and the small details
+    that make a product feel finished, like sensible loading states,
+    helpful error messages and layouts that hold up on every screen size.
+    I&apos;m completing my BCA alongside my professional work, and I keep
+    sharpening my skills by building and shipping projects end to end.
+  </p>
+</div>
             </Reveal>
 
             <Reveal delay={0.12}>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid gap-4 sm:grid-cols-2">
                 {stats.map((stat) => {
                   const Icon = stat.icon;
                   return (
@@ -139,29 +140,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section>
-        <div className="grid gap-6 sm:grid-cols-2">
-          {strengths.map((strength, index) => {
-            const Icon = strength.icon;
-            return (
-              <Reveal key={strength.title} delay={index * 0.06}>
-                <div className="h-full rounded-2xl border border-edge bg-surface p-6 transition-all duration-300 hover:border-brand-500/40">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-brand-500/25 bg-brand-500/10 text-brand-500">
-                    <Icon className="h-4.5 w-4.5" aria-hidden />
-                  </span>
-                  <h3 className="mt-4 text-base font-semibold tracking-tight text-fg">
-                    {strength.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted">
-                    {strength.text}
-                  </p>
-                </div>
-              </Reveal>
-            );
-          })}
-        </div>
-      </Section>
-
+      {/* Education */}
       <Section id="education">
         <div className="flex items-center gap-2.5">
           <GraduationCap className="h-5 w-5 text-brand-500" aria-hidden />
@@ -169,7 +148,7 @@ export default function HomePage() {
             Education
           </h2>
         </div>
-        <div className="mt-8 grid gap-6 md:grid-cols-2">
+        <div className="mt-8 grid gap-4 sm:gap-6 md:grid-cols-2">
           {education.map((entry, index) => (
             <Reveal key={entry.id} delay={index * 0.08}>
               <div className="h-full rounded-2xl border border-edge bg-surface p-6">
@@ -177,11 +156,14 @@ export default function HomePage() {
                   <h3 className="text-base font-semibold tracking-tight text-fg">
                     {entry.degree}
                   </h3>
-                  <Badge tone={entry.kind === "Degree" ? "brand" : "neutral"}>
+                  <Badge
+                    tone={entry.kind === "Degree" ? "brand" : "neutral"}
+                    className="shrink-0"
+                  >
                     {entry.kind}
                   </Badge>
                 </div>
-                <p className="mt-1 font-mono text-xs text-faint">
+                <p className="mt-1 text-xs leading-relaxed text-faint sm:font-mono">
                   {entry.institution} · {entry.location}
                 </p>
                 <p className="mt-3 text-sm text-muted">{entry.period}</p>
@@ -191,33 +173,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section>
-        <Reveal>
-          <div className="flex flex-col items-start gap-6 rounded-2xl border border-edge bg-surface p-8 sm:flex-row sm:items-center sm:justify-between">
-            <div className="flex items-start gap-4">
-              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-brand-500/25 bg-brand-500/10 text-brand-500">
-                <Telescope className="h-5 w-5" aria-hidden />
-              </span>
-              <div>
-                <h2 className="text-lg font-semibold tracking-tight text-fg">
-                  Currently exploring
-                </h2>
-                <p className="mt-1 text-sm text-muted">
-                  New tools I&apos;m learning by building with them.
-                </p>
-              </div>
-            </div>
-            <ul className="flex flex-wrap gap-2">
-              {currentlyLearning.map((item) => (
-                <li key={item}>
-                  <Badge tone="faint">{item}</Badge>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </Reveal>
-      </Section>
-
+      {/* Experience */}
       <Section id="experience">
         <div className="flex items-center gap-2.5">
           <Briefcase className="h-5 w-5 text-brand-500" aria-hidden />
@@ -225,13 +181,14 @@ export default function HomePage() {
             Experience
           </h2>
         </div>
+
         <div className="relative mt-10 space-y-14">
           <span
             className="absolute bottom-2 left-[9px] top-2 w-px bg-gradient-to-b from-brand-500/50 via-edge to-transparent"
             aria-hidden
           />
           {experience.map((entry, index) => (
-            <article key={entry.id} className="relative pl-12 sm:pl-16">
+            <article key={entry.id} className="relative pl-9 sm:pl-14">
               <span
                 className="absolute left-0 top-1 flex h-5 w-5 items-center justify-center rounded-full border border-brand-500/40 bg-surface"
                 aria-hidden
@@ -241,131 +198,55 @@ export default function HomePage() {
 
               <Reveal delay={index * 0.05}>
                 <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-                  <h3 className="text-xl font-semibold tracking-tight text-fg">
+                  <h3 className="text-lg font-semibold tracking-tight text-fg sm:text-xl">
                     {entry.role}
                   </h3>
                   <Badge tone={entry.current ? "success" : "brand"}>
                     {entry.current ? "Current" : entry.type}
                   </Badge>
                 </div>
-                <p className="mt-1.5 font-mono text-xs text-faint">
+
+                <p className="mt-1.5 text-xs leading-relaxed text-faint sm:font-mono">
                   {entry.company} · {entry.location} · {entry.period}
                 </p>
 
-                <div className="mt-6 grid gap-8 lg:grid-cols-[1.15fr_0.85fr]">
-                  <div>
-                    <p className="text-pretty text-base leading-7 text-muted">
-                      {entry.summary}
-                    </p>
-                    <ul className="mt-5 space-y-3">
-                      {entry.responsibilities.map((responsibility) => (
-                        <li
-                          key={responsibility}
-                          className="flex gap-3 text-pretty text-[15px] leading-relaxed text-muted"
-                        >
-                          <span
-                            className="mt-2 h-1 w-1 shrink-0 rounded-full bg-brand-500"
-                            aria-hidden
-                          />
-                          {responsibility}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="lg:pt-8">
-                    <p className="font-mono text-xs uppercase tracking-[0.18em] text-faint">
-                      Stack
-                    </p>
-                    <ul className="mt-3 flex flex-wrap gap-1.5">
-                      {entry.stack.map((tech) => (
-                        <li key={tech}>
-                          <Badge>{tech}</Badge>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
+                <ul className="mt-4 flex flex-wrap gap-1.5">
+                  {entry.stack.map((tech) => (
+                    <li key={tech}>
+                      <Badge>{tech}</Badge>
+                    </li>
+                  ))}
+                </ul>
+
+                <p className="mt-6 max-w-3xl text-pretty text-base leading-7 text-muted">
+                  {entry.summary}
+                </p>
+                <ul className="mt-5 max-w-3xl space-y-3">
+                  {entry.responsibilities.map((responsibility) => (
+                    <li
+                      key={responsibility}
+                      className="flex gap-3 text-pretty text-[15px] leading-relaxed text-muted"
+                    >
+                      <span
+                        className="mt-2.5 h-1 w-1 shrink-0 rounded-full bg-brand-500"
+                        aria-hidden
+                      />
+                      {responsibility}
+                    </li>
+                  ))}
+                </ul>
               </Reveal>
             </article>
           ))}
         </div>
       </Section>
 
+      {/* Skills */}
       <Section id="skills">
-        <div className="flex items-center gap-2.5">
-          <Code2 className="h-5 w-5 text-brand-500" aria-hidden />
-          <h2 className="text-2xl font-semibold tracking-tight text-fg">
-            Skills
-          </h2>
-        </div>
-        <div className="mt-8 grid gap-6 lg:grid-cols-3">
-          {skillCategories.map((category, index) => {
-            const CategoryIcon =
-              skillIcons[category.icon] ?? skillIcons.layers;
-            return (
-              <Reveal
-                key={category.id}
-                delay={index * 0.06}
-                className="h-full"
-              >
-                <div className="flex h-full flex-col rounded-2xl border border-edge bg-surface p-6">
-                  <div className="flex items-center gap-3">
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-brand-500/25 bg-brand-500/10 text-brand-500">
-                      <CategoryIcon className="h-4.5 w-4.5" aria-hidden />
-                    </span>
-                    <div>
-                      <h3 className="text-base font-semibold tracking-tight text-fg">
-                        {category.title}
-                      </h3>
-                      <p className="text-[13px] text-faint">
-                        {category.description}
-                      </p>
-                    </div>
-                  </div>
-
-                  <ul className="mt-6 flex flex-1 flex-col divide-y divide-edge">
-                    {category.skills.map((skill) => {
-                      const SkillIcon =
-                        skillIcons[skill.icon] ?? skillIcons.braces;
-                      return (
-                        <li key={skill.name} className="flex gap-3 py-4">
-                          <SkillIcon
-                            className="mt-0.5 h-4 w-4 shrink-0 text-brand-500"
-                            aria-hidden
-                          />
-                          <div className="min-w-0 flex-1">
-                            <div className="flex items-center justify-between gap-3">
-                              <p className="text-sm font-medium text-fg">
-                                {skill.name}
-                              </p>
-                              <Badge
-                                tone={levelTone[skill.level]}
-                                className="shrink-0"
-                              >
-                                {skill.level}
-                              </Badge>
-                            </div>
-                            <p
-                              className={cn(
-                                "mt-1.5 text-[13px] leading-relaxed text-muted",
-                                skill.level === "Working knowledge" &&
-                                  "text-faint",
-                              )}
-                            >
-                              {skill.context}
-                            </p>
-                          </div>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </div>
-              </Reveal>
-            );
-          })}
-        </div>
+        <Skills />
       </Section>
 
+      {/* Projects */}
       <Section id="projects">
         <div className="flex items-center gap-2.5">
           <Code2 className="h-5 w-5 text-brand-500" aria-hidden />
@@ -378,6 +259,7 @@ export default function HomePage() {
         </div>
       </Section>
 
+      {/* Contact */}
       <Section id="contact">
         <div className="flex items-center gap-2.5">
           <Mail className="h-5 w-5 text-brand-500" aria-hidden />
@@ -387,27 +269,50 @@ export default function HomePage() {
         </div>
         <div className="mt-8 grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:gap-16">
           <Reveal>
-            <div className="rounded-2xl border border-edge bg-surface p-6 sm:p-8">
-              <ContactForm />
+            <div className="rounded-2xl border border-edge bg-surface p-5 sm:p-8">
+              <h3 className="text-lg font-semibold tracking-tight text-fg">
+                Let&apos;s work together
+              </h3>
+              <p className="mt-2 max-w-md text-sm leading-relaxed text-muted">
+                Have a role, project or idea in mind? Reach out directly through
+                any of the channels below. I usually reply within a day.
+              </p>
+              <ul className="mt-6 space-y-3">
+                {site.socials.map((social) => {
+                  const Icon = socialIcons[social.key];
+                  const isEmail = social.href.startsWith("mailto:");
+                  return (
+                    <li key={social.key}>
+                      <a
+                        href={social.href}
+                        target={isEmail ? undefined : "_blank"}
+                        rel={isEmail ? undefined : "noopener noreferrer"}
+                        className="group flex items-center gap-4 rounded-xl border border-edge bg-surface-2 p-4 transition-colors hover:border-brand-500/40"
+                      >
+                        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-edge bg-surface text-brand-500">
+                          <Icon className="h-4 w-4" />
+                        </span>
+                        <span className="min-w-0 flex-1">
+                          <span className="block text-sm font-semibold text-fg">
+                            {social.label}
+                          </span>
+                          <span className="mt-0.5 block truncate text-xs text-muted">
+                            {isEmail ? site.email : contactDescriptions[social.key]}
+                          </span>
+                        </span>
+                        <ArrowUpRight
+                          className="h-4 w-4 shrink-0 text-muted transition-all duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-brand-500"
+                          aria-hidden
+                        />
+                      </a>
+                    </li>
+                  );
+                })}
+              </ul>
             </div>
           </Reveal>
 
-          <div className="space-y-5">
-            <Reveal delay={0.08}>
-              <div className="rounded-2xl border border-edge bg-surface p-6">
-                <p className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.18em] text-faint">
-                  <Mail className="h-3.5 w-3.5 text-brand-500" aria-hidden />
-                  Email
-                </p>
-                <a
-                  href={`mailto:${site.email}`}
-                  className="mt-3 block break-all text-sm font-medium text-fg underline-offset-4 transition-colors hover:text-brand-500 hover:underline"
-                >
-                  {site.email}
-                </a>
-              </div>
-            </Reveal>
-
+          <div className="space-y-4 sm:space-y-5">
             <Reveal delay={0.14}>
               <div className="rounded-2xl border border-edge bg-surface p-6">
                 <p className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.18em] text-faint">
@@ -417,7 +322,7 @@ export default function HomePage() {
                 <p className="mt-3 text-sm font-medium text-fg">
                   {site.location}
                   <span className="mt-1 block font-normal text-muted">
-                    Working remote-friendly across time zones.
+                    Open to remote work across time zones.
                   </span>
                 </p>
               </div>
@@ -426,36 +331,23 @@ export default function HomePage() {
             <Reveal delay={0.2}>
               <div className="rounded-2xl border border-edge bg-surface p-6">
                 <p className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.18em] text-faint">
-                  <CalendarClock
+                  <Mail
                     className="h-3.5 w-3.5 text-brand-500"
                     aria-hidden
                   />
-                  Availability
+                  Email
                 </p>
-                <div className="mt-3 flex items-center gap-2">
-                  <Badge tone="success">
-                    <span className="relative flex h-1.5 w-1.5">
-                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-60" />
-                      <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                    </span>
-                    {site.availabilityNote}
-                  </Badge>
-                </div>
-                <p className="mt-3 text-sm leading-relaxed text-muted">
-                  Typically responding within a day — occasional exceptions
-                  when I&apos;m heads-down on a build.
+                <p className="mt-3 text-sm font-medium text-fg">
+                 
+                    {site.email}
+                 
                 </p>
+                   <span className="mt-1 block text-sm opacity-55 text-muted">
+                    Contact me on this email for any queries or collaborations.
+                  </span>
               </div>
             </Reveal>
 
-            <Reveal delay={0.26}>
-              <div className="rounded-2xl border border-edge bg-surface p-6">
-                <p className="font-mono text-xs uppercase tracking-[0.18em] text-faint">
-                  Elsewhere
-                </p>
-                <SocialLinks className="mt-4" />
-              </div>
-            </Reveal>
           </div>
         </div>
       </Section>

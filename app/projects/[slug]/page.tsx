@@ -73,7 +73,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 >
                   {project.status}
                 </Badge>
-                <Badge>{project.year}</Badge>
               </div>
               <h1 className="mt-5 text-balance text-4xl font-semibold tracking-tight text-fg sm:text-5xl">
                 {project.name}
@@ -112,6 +111,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <ProjectVisual
               name={project.name}
               tone={project.tone}
+              image={project.image}
               className="aspect-[16/10]"
             />
           </Reveal>

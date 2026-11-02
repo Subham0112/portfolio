@@ -12,7 +12,10 @@ export function Section({ id, className, children }: SectionProps) {
   return (
     <section
       id={id}
-      className={cn("px-4 py-16 sm:px-6 sm:py-24 lg:px-8", className)}
+      className={cn(
+        "scroll-mt-20 px-4 py-8 sm:px-6 sm:py-12 lg:px-8",
+        className,
+      )}
     >
       <div className="mx-auto w-full max-w-5xl">{children}</div>
     </section>
@@ -46,7 +49,13 @@ export function SectionHeader({
     >
       <div className="flex flex-col gap-4">
         <p className="flex items-center gap-2.5 font-mono text-xs font-medium uppercase tracking-[0.18em] text-brand-600 dark:text-brand-400">
-          <span className={cn("h-px w-7", align === "center" && "mx-auto", "bg-brand-500/60")} />
+          <span
+            className={cn(
+              "h-px w-7",
+              align === "center" && "mx-auto",
+              "bg-brand-500/60",
+            )}
+          />
           {eyebrow}
         </p>
         <h2 className="max-w-2xl text-balance text-2xl font-semibold tracking-tight text-fg sm:text-3xl">
@@ -54,12 +63,22 @@ export function SectionHeader({
         </h2>
       </div>
       {description ? (
-        <p className={cn("max-w-2xl text-pretty text-base leading-relaxed text-muted", align === "center" && "mx-auto")}>
+        <p
+          className={cn(
+            "max-w-2xl text-pretty text-base leading-relaxed text-muted",
+            align === "center" && "mx-auto",
+          )}
+        >
           {description}
         </p>
       ) : null}
       {actions ? (
-        <div className={cn("flex items-center gap-3", align === "center" && "justify-center")}>
+        <div
+          className={cn(
+            "flex items-center gap-3",
+            align === "center" && "justify-center",
+          )}
+        >
           {actions}
         </div>
       ) : null}

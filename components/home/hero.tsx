@@ -55,19 +55,6 @@ export function Hero() {
         <Reveal delay={0.24}>
           <SocialLinks className="mt-10" />
         </Reveal>
-
-        <Reveal delay={0.3} className="absolute bottom-10 left-1/2 -translate-x-1/2">
-          <a
-            href="#about"
-            className="group flex flex-col items-center gap-2 text-faint transition-colors hover:text-fg"
-            aria-label="Scroll to about section"
-          >
-            <span className="font-mono text-[10px] uppercase tracking-[0.2em]">
-              Scroll
-            </span>
-            <ArrowDown className="h-4 w-4 animate-bounce" aria-hidden />
-          </a>
-        </Reveal>
       </Container>
     </section>
   );

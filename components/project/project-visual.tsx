@@ -1,10 +1,12 @@
 import type { CSSProperties } from "react";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import type { ProjectTone } from "@/data/projects";
 
 interface ProjectVisualProps {
   name: string;
   tone: ProjectTone;
+  image?: string | null;
   className?: string;
 }
 
@@ -16,7 +18,12 @@ const tones: Record<ProjectTone, { from: string; to: string }> = {
   sky: { from: "rgba(56, 189, 248, 0.34)", to: "rgba(129, 140, 248, 0.22)" },
 };
 
-export function ProjectVisual({ name, tone, className }: ProjectVisualProps) {
+export function ProjectVisual({
+  name,
+  tone,
+  image,
+  className,
+}: ProjectVisualProps) {
   const palette = tones[tone];
   const styles: CSSProperties = {
     backgroundImage: [
@@ -35,10 +42,27 @@ export function ProjectVisual({ name, tone, className }: ProjectVisualProps) {
         className,
       )}
     >
-      <div className="absolute inset-0" style={styles} />
-      <div className="bg-grid absolute inset-0 opacity-40 [mask-image:linear-gradient(to_bottom,black,transparent_80%)]" />
+      {image ? (
+        <Image
+          src={image}
+          alt={`${name} preview`}
+          fill
+          sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+          className="object-cover"
+        />
+      ) : (
+        <>
+          <div className="absolute inset-0" style={styles} />
+          <div className="bg-grid absolute inset-0 opacity-40 [mask-image:linear-gradient(to_bottom,black,transparent_80%)]" />
+        </>
+      )}
 
-      <div className="relative flex h-full w-full flex-col p-5 sm:p-7">
+      <div
+        className={cn(
+          "relative flex h-full w-full flex-col p-5 sm:p-7",
+          image && "hidden",
+        )}
+      >
         <div className="flex items-center gap-1.5">
           <span className="h-2.5 w-2.5 rounded-full bg-white/25" />
           <span className="h-2.5 w-2.5 rounded-full bg-white/25" />

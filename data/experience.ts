@@ -1,38 +1,25 @@
-export type ExperienceType = "Internship" | "Freelance";
-
-export interface ExperienceEntry {
-  id: string;
-  role: string;
-  company: string;
-  period: string;
-  location: string;
-  type: ExperienceType;
-  current: boolean;
-  summary: string;
-  responsibilities: string[];
-  stack: string[];
-}
-
-export const experience: ExperienceEntry[] = [
+export const experience = [
   {
-    id: "internship",
-    role: "Full Stack Developer Intern",
-    company: "Information Care (Info Care)",
-    period: "05/2026 – 08/2026",
+    id: "info-care",
+    role: "Full Stack Developer",
+    type: "Full Time",
+    company: "Information Care Pvt. Ltd.",
     location: "Kathmandu, Nepal",
-    type: "Internship",
+    period: "Mar 2026 to Sep 2026",
     current: false,
     summary:
-      "Developed and maintained full-stack web applications, including a social media platform and a restaurant management system.",
+      "Worked as a full stack developer developing scalable systems , owning features from database design through to the user interface.",
     responsibilities: [
-      "Developed ConnectHub (Social Media WebApp) using React.js, Node.js, Express.js, PostgreSQL, Prisma ORM, and WebSockets",
-      "Implemented authentication, posts, comments, likes, friend requests, and realtime messaging",
-      "Maintained and developed features for a production-ready Restaurant Management System and Website for Syanko",
-      "Diagnosed and fixed frontend/backend issues, improving application stability, responsiveness, and overall performance",
-      "Collaborated with developers to translate business requirements into clean, maintainable, and scalable code",
+  "Built scalable REST APIs with Node.js and Express, supported by normalized PostgreSQL schemas and Prisma ORM for reliable, type safe data access.",
+  "Worked on a module such as and Product management and User Management alongside developing POS system, ensuring that the features were robust, maintainable and met business requirements.",
+  "Implemented a realtime order management layer using WebSockets, giving staff instant visibility into live orders.",
+  "Collaborated closely with senior engineers to translate business requirements into clean, maintainable code, following a Git based pull request workflow with regular code reviews.",
+  "Took ownership of assigned modules from planning to delivery, working in an agile team environment and consistently meeting project deadlines.",
+  "Integrated frontend interfaces with backend services, handling validation, error states and edge cases to make user flows dependable.",
+
     ],
     stack: [
-      "React",
+      "Next.js",
       "Node.js",
       "Express",
       "PostgreSQL",

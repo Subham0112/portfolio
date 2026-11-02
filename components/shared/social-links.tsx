@@ -1,14 +1,6 @@
-import { AtSign, FolderGit2, Mail, Send } from "lucide-react";
-import type { SocialKey } from "@/data/site";
 import { site } from "@/data/site";
+import { socialIcons } from "@/components/shared/social-icons";
 import { cn } from "@/lib/utils";
-
-const socialIcons: Record<SocialKey, typeof AtSign> = {
-  github: FolderGit2,
-  linkedin: AtSign,
-  x: Send,
-  email: Mail,
-};
 
 interface SocialLinksProps {
   className?: string;
