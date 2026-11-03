@@ -20,13 +20,13 @@ export function Hero() {
         </Reveal>
 
         <Reveal delay={0.06}>
-          <h1 className="text-4xl font-bold leading-[1.08] tracking-tight text-fg sm:text-6xl lg:text-7xl">
+          <h1 className="text-3xl font-bold leading-[1.1] tracking-tight text-fg sm:text-6xl lg:text-7xl">
             <span className="text-gradient">Subham Khatiwada</span>
           </h1>
         </Reveal>
 
         <Reveal delay={0.12}>
-          <p className="mt-5 max-w-2xl text-pretty text-lg leading-relaxed text-muted sm:text-xl">
+          <p className="mt-5 max-w-2xl text-pretty text-base leading-relaxed text-muted sm:text-xl">
             Building scalable, high-performance web applications and
             software with clean architecture and a strong focus on
             solving real business problems.

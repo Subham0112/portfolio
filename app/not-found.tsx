@@ -14,7 +14,7 @@ export default function NotFound() {
         <FileQuestion className="h-7 w-7" aria-hidden />
       </span>
       <p className="mt-6 font-mono text-sm text-faint">404</p>
-      <h1 className="mt-2 text-3xl font-semibold tracking-tight text-fg sm:text-4xl">
+      <h1 className="mt-2 text-2xl font-semibold tracking-tight text-fg sm:text-4xl">
         This page doesn&apos;t exist
       </h1>
       <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted">

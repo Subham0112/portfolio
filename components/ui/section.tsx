@@ -13,7 +13,7 @@ export function Section({ id, className, children }: SectionProps) {
     <section
       id={id}
       className={cn(
-        "scroll-mt-20 px-4 py-8 sm:px-6 sm:py-12 lg:px-8",
+        "scroll-mt-18 px-4 py-8 sm:px-6 sm:py-12 lg:px-8",
         className,
       )}
     >
@@ -58,14 +58,14 @@ export function SectionHeader({
           />
           {eyebrow}
         </p>
-        <h2 className="max-w-2xl text-balance text-2xl font-semibold tracking-tight text-fg sm:text-3xl">
+        <h2 className="max-w-2xl text-balance text-xl font-semibold tracking-tight text-fg sm:text-3xl">
           {title}
         </h2>
       </div>
       {description ? (
         <p
           className={cn(
-            "max-w-2xl text-pretty text-base leading-relaxed text-muted",
+            "max-w-2xl text-pretty text-sm leading-relaxed text-muted sm:text-base",
             align === "center" && "mx-auto",
           )}
         >

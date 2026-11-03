@@ -16,7 +16,7 @@ function Logo() {
       className="group flex items-center gap-2.5"
     >
      
-      <span className="text-lg text-brand-600 dark:text-brand-400 font-semibold tracking-tight ">
+      <span className="text-base text-brand-600 dark:text-brand-400 font-semibold tracking-tight sm:text-lg">
         {site.name}
       </span>
     </Link>

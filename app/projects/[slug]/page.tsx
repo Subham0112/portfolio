@@ -52,7 +52,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
   return (
     <>
-      <Container className="pb-16 pt-32 sm:pb-20 sm:pt-40">
+      <Container className="pb-16 pt-22 sm:pb-20 sm:pt-26">
         <Reveal>
           <Link
             href="/#projects"
@@ -67,17 +67,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           <div>
             <Reveal>
               <div className="flex flex-wrap items-center gap-2">
-                <Badge tone="brand">{projectCategoryLabel(project.category)}</Badge>
-                <Badge
-                  tone={project.status === "In development" ? "faint" : "success"}
-                >
-                  {project.status}
-                </Badge>
+               
               </div>
-              <h1 className="mt-5 text-balance text-4xl font-semibold tracking-tight text-fg sm:text-5xl">
+              <h1 className="mt-5 text-balance text-3xl font-semibold tracking-tight text-fg sm:text-5xl">
                 {project.name}
               </h1>
-              <p className="mt-4 max-w-xl text-pretty text-base leading-relaxed text-muted sm:text-lg">
+              <p className="mt-4 max-w-xl text-pretty text-sm leading-relaxed text-muted sm:text-lg">
                 {project.tagline}
               </p>
 
@@ -122,13 +117,13 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
           <div className="space-y-12">
             <div>
-              <h2 className="text-xl font-semibold tracking-tight text-fg">
+              <h2 className="text-lg font-semibold tracking-tight text-fg sm:text-xl">
                 About the project
               </h2>
               <div className="mt-5 space-y-5">
                 {project.about.map((paragraph, paragraphIndex) => (
                   <Reveal key={paragraphIndex} delay={paragraphIndex * 0.05}>
-                    <p className="text-pretty text-base leading-7 text-muted">
+                    <p className="text-pretty text-sm leading-relaxed text-muted sm:text-base sm:leading-7">
                       {paragraph}
                     </p>
                   </Reveal>
@@ -137,13 +132,13 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </div>
 
             <div>
-              <h2 className="text-xl font-semibold tracking-tight text-fg">
+              <h2 className="text-lg font-semibold tracking-tight text-fg sm:text-xl">
                 Key features
               </h2>
               <ul className="mt-5 space-y-3.5">
                 {project.features.map((feature, featureIndex) => (
                   <Reveal key={feature} delay={featureIndex * 0.04}>
-                    <li className="flex gap-3 text-base leading-7 text-muted">
+                    <li className="flex gap-3 text-sm leading-relaxed text-muted sm:text-base sm:leading-7">
                       <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-brand-500/30 bg-brand-500/10 text-brand-500">
                         <Check className="h-3 w-3" aria-hidden />
                       </span>
@@ -231,7 +226,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </nav>
 
         <Reveal>
-          <h2 className="text-xl font-semibold tracking-tight text-fg">
+          <h2 className="text-lg font-semibold tracking-tight text-fg sm:text-xl">
             More projects
           </h2>
         </Reveal>

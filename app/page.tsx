@@ -89,7 +89,7 @@ export default function HomePage() {
 
           <div className="space-y-8">
             <Reveal delay={0.06}>
-              <div className="space-y-4 text-base leading-relaxed text-muted">
+              <div className="space-y-4 text-sm leading-relaxed text-muted sm:text-base">
   <p>
    Full Stack Developer with hands on experience in developing responsive web applications and contributing to real world software projects. Skilled in building user friendly interfaces, integrating backend services, developing RESTful APIs, and working with databases. 
   </p>
@@ -144,7 +144,7 @@ export default function HomePage() {
       <Section id="education">
         <div className="flex items-center gap-2.5">
           <GraduationCap className="h-5 w-5 text-brand-500" aria-hidden />
-          <h2 className="text-2xl font-semibold tracking-tight text-fg">
+          <h2 className="text-xl font-semibold tracking-tight text-fg sm:text-2xl">
             Education
           </h2>
         </div>
@@ -177,7 +177,7 @@ export default function HomePage() {
       <Section id="experience">
         <div className="flex items-center gap-2.5">
           <Briefcase className="h-5 w-5 text-brand-500" aria-hidden />
-          <h2 className="text-2xl font-semibold tracking-tight text-fg">
+          <h2 className="text-xl font-semibold tracking-tight text-fg sm:text-2xl">
             Experience
           </h2>
         </div>
@@ -198,7 +198,7 @@ export default function HomePage() {
 
               <Reveal delay={index * 0.05}>
                 <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-                  <h3 className="text-lg font-semibold tracking-tight text-fg sm:text-xl">
+                  <h3 className="text-base font-semibold tracking-tight text-fg sm:text-xl">
                     {entry.role}
                   </h3>
                   <Badge tone={entry.current ? "success" : "brand"}>
@@ -218,14 +218,14 @@ export default function HomePage() {
                   ))}
                 </ul>
 
-                <p className="mt-6 max-w-3xl text-pretty text-base leading-7 text-muted">
+                <p className="mt-6 max-w-3xl text-pretty text-sm leading-relaxed text-muted sm:text-base sm:leading-7">
                   {entry.summary}
                 </p>
                 <ul className="mt-5 max-w-3xl space-y-3">
                   {entry.responsibilities.map((responsibility) => (
                     <li
                       key={responsibility}
-                      className="flex gap-3 text-pretty text-[15px] leading-relaxed text-muted"
+                      className="flex gap-3 text-pretty text-sm leading-relaxed text-muted sm:text-[15px]"
                     >
                       <span
                         className="mt-2.5 h-1 w-1 shrink-0 rounded-full bg-brand-500"
@@ -250,7 +250,7 @@ export default function HomePage() {
       <Section id="projects">
         <div className="flex items-center gap-2.5">
           <Code2 className="h-5 w-5 text-brand-500" aria-hidden />
-          <h2 className="text-2xl font-semibold tracking-tight text-fg">
+          <h2 className="text-xl font-semibold tracking-tight text-fg sm:text-2xl">
             Projects
           </h2>
         </div>
@@ -263,14 +263,14 @@ export default function HomePage() {
       <Section id="contact">
         <div className="flex items-center gap-2.5">
           <Mail className="h-5 w-5 text-brand-500" aria-hidden />
-          <h2 className="text-2xl font-semibold tracking-tight text-fg">
+          <h2 className="text-xl font-semibold tracking-tight text-fg sm:text-2xl">
             Contact
           </h2>
         </div>
         <div className="mt-8 grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:gap-16">
           <Reveal>
             <div className="rounded-2xl border border-edge bg-surface p-5 sm:p-8">
-              <h3 className="text-lg font-semibold tracking-tight text-fg">
+              <h3 className="text-base font-semibold tracking-tight text-fg sm:text-lg">
                 Let&apos;s work together
               </h3>
               <p className="mt-2 max-w-md text-sm leading-relaxed text-muted">

@@ -11,7 +11,7 @@ export function Footer() {
       <Container>
         <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
           <div className="max-w-sm">
-            <p className="text-base font-semibold tracking-tight text-fg">
+            <p className="text-sm font-semibold tracking-tight text-fg sm:text-base">
               {site.name} <span className="text-brand-500">·</span>{" "}
               <span className="text-muted">{site.role}</span>
             </p>

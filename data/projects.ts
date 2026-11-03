@@ -38,7 +38,7 @@ export const projects: Project[] = [
       "Full-stack social media app with JWT-authenticated accounts, a post feed with likes and comments, and realtime conversations powered by Socket.IO.",
     category: "real-time",
     tone: "teal",
-    image: null,
+    image: "/images/connecthub.png",
     status: "Completed",
     featured: true,
     stack: [
@@ -58,10 +58,10 @@ export const projects: Project[] = [
       "Profile pages, image uploads and search across users and posts."
     ],
     about: [
-      "ConnectHub is my largest MERN project — a social network built end to end, from schema design to a responsive React UI. The app is organised around three layers: an Express API with JWT-secured routes, MongoDB collections wired through Mongoose, and a React client split into modular feature folders.",
+      "ConnectHub is a social network built end to end, from schema design to a responsive React UI. The app is organised around three layers: an Express API with JWT-secured routes, a PostgreSQL database, and a React client split into modular feature folders.",
     ],
-    liveUrl: null,
-    sourceUrl: "https://github.com/YOUR_GITHUB_USERNAME/connecthub",
+    liveUrl: "https://connecthub-frontend-seven.vercel.app/",
+    sourceUrl: "https://github.com/Subham0112/connecthub-frontend",
     placeholderNote:
       "Add your deployed URL to liveUrl in data/projects.ts to enable the demo link.",
   },

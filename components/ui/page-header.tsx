@@ -16,11 +16,11 @@ export function PageHeader({ eyebrow, title, description, actions }: PageHeaderP
           <span className="h-px w-7 bg-brand-500/60" />
           {eyebrow}
         </p>
-        <h1 className="text-balance text-4xl font-semibold tracking-tight text-fg sm:text-5xl">
+        <h1 className="text-balance text-3xl font-semibold tracking-tight text-fg sm:text-5xl">
           {title}
         </h1>
         {description ? (
-          <p className="text-pretty text-base leading-relaxed text-muted sm:text-lg">
+          <p className="text-pretty text-sm leading-relaxed text-muted sm:text-lg">
             {description}
           </p>
         ) : null}
