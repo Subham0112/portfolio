@@ -69,7 +69,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var valid=["dark","forest","white","purple","orange"];var t=localStorage.getItem("theme");if(t==="light")t="white";if(valid.indexOf(t)===-1)t="dark";var el=document.documentElement;el.setAttribute("data-theme",t);el.classList.toggle("dark",t==="dark")}catch(e){document.documentElement.setAttribute("data-theme","dark");document.documentElement.classList.add("dark")}})();`,
+            __html: `(function(){try{var valid=["dark","forest","purple","orange"];var t=localStorage.getItem("theme");if(t==="light"||t==="white")t="dark";if(valid.indexOf(t)===-1)t="dark";var el=document.documentElement;el.setAttribute("data-theme",t);el.classList.add("dark")}catch(e){document.documentElement.setAttribute("data-theme","dark");document.documentElement.classList.add("dark")}})();`,
           }}
         />
       </head>
@@ -77,7 +77,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <div id="top">
           <a
             href="#main"
-            className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-brand-500 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-brand-950"
+            className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-brand-500 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-on-brand"
           >
             Skip to content
           </a>

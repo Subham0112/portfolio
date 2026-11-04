@@ -1,4 +1,4 @@
-export type Theme = "dark" | "forest" | "white" | "purple" | "orange";
+export type Theme = "dark" | "forest" | "purple" | "orange";
 
 export interface ThemeOption {
   id: Theme;
@@ -21,22 +21,16 @@ export const themes: ThemeOption[] = [
     swatches: ["#0c1511", "#111d17", "#93bf8f"],
   },
   {
-    id: "white",
-    label: "White",
-    hint: "Soft sage",
-    swatches: ["#e2e5df", "#f6f8f3", "#10b981"],
-  },
-  {
     id: "purple",
-    label: "Light Purple",
-    hint: "Royal lavender",
-    swatches: ["#e0d2f2", "#f6f1fd", "#7c3aed"],
+    label: "Purple",
+    hint: "Deep violet",
+    swatches: ["#0d0914", "#1c162b", "#a78bfa"],
   },
   {
     id: "orange",
-    label: "Soft Orange",
-    hint: "Golden ember",
-    swatches: ["#f4e4d2", "#fdf8f2", "#f97316"],
+    label: "Orange",
+    hint: "Warm ember",
+    swatches: ["#120c07", "#24190f", "#fb923c"],
   },
 ];
 
@@ -47,7 +41,7 @@ type Listener = () => void;
 const listeners = new Set<Listener>();
 
 export function normalizeTheme(value: string | null | undefined): Theme {
-  if (value === "light") return "white";
+  if (value === "light" || value === "white") return defaultTheme;
   return themes.some((theme) => theme.id === value)
     ? (value as Theme)
     : defaultTheme;
@@ -61,7 +55,7 @@ export function getTheme(): Theme {
 export function applyTheme(theme: Theme) {
   const root = document.documentElement;
   root.dataset.theme = theme;
-  root.classList.toggle("dark", theme === "dark");
+  root.classList.add("dark");
 }
 
 export function setTheme(theme: Theme) {
@@ -82,7 +76,7 @@ export function cycleTheme() {
 }
 
 export function toggleTheme() {
-  setTheme(getTheme() === "dark" ? "white" : "dark");
+  setTheme(getTheme() === "dark" ? "forest" : "dark");
 }
 
 export function subscribeTheme(listener: Listener) {

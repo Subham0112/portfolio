@@ -33,7 +33,7 @@ function Logo({
       className="group flex items-center gap-2.5"
       onClick={onClick}
     >
-      <span className="text-sm text-brand-600 dark:text-brand-400 font-semibold tracking-tight sm:text-lg">
+      <span className="text-base text-brand-600 dark:text-brand-400 font-semibold tracking-tight sm:text-lg">
         {site.name}
       </span>
     </Link>
@@ -233,7 +233,7 @@ export function Navbar() {
             <Link
               href="/#contact"
               onClick={(event) => handleNavClick(event, "#contact")}
-              className="hidden items-center gap-1.5 rounded-full bg-brand-500 px-4 py-2 text-xs font-semibold text-brand-950 transition-colors duration-200 hover:bg-brand-400 md:inline-flex"
+              className="hidden items-center gap-1.5 rounded-full bg-brand-500 px-4 py-2 text-xs font-semibold text-on-brand transition-colors duration-200 hover:bg-brand-400 md:inline-flex"
             >
               Let&apos;s talk
               <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
@@ -337,7 +337,7 @@ export function Navbar() {
                 <Link
                   href="/#contact"
                   onClick={(event) => handleNavClick(event, "#contact")}
-                  className="inline-flex h-10 shrink-0 items-center gap-1.5 rounded-full bg-brand-500 px-4 text-sm font-semibold text-brand-950 transition-colors hover:bg-brand-400"
+                  className="inline-flex h-10 shrink-0 items-center gap-1.5 rounded-full bg-brand-500 px-4 text-sm font-semibold text-on-brand transition-colors hover:bg-brand-400"
                 >
                   Let&apos;s talk
                   <ArrowUpRight className="h-4 w-4" aria-hidden />

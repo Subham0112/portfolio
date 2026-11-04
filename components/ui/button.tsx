@@ -24,7 +24,7 @@ const base =
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-brand-500 text-brand-950  hover:bg-brand-400 ",
+    "bg-brand-500 text-on-brand  hover:bg-brand-400 ",
   secondary:
     "border border-edge bg-surface text-fg hover:border-edge-strong hover:bg-surface-2",
   outline:

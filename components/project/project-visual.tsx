@@ -71,7 +71,7 @@ export function ProjectVisual({
         </div>
 
         <div className="mt-6 flex flex-1 items-center gap-6 sm:mt-8">
-          <span className="font-mono text-5xl font-bold tracking-tighter text-white/[0.08] sm:text-8xl">
+          <span className="font-mono text-6xl font-bold tracking-tighter text-white/[0.08] sm:text-8xl">
             {name[0]?.toUpperCase()}
           </span>
           <div className="min-w-0 flex-1 space-y-2.5">

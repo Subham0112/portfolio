@@ -91,7 +91,7 @@ export default function HomePage() {
           <div className="space-y-8">
           <div className="flex items-center gap-2.5">
           <User className="h-5 w-5 text-brand-500" aria-hidden />
-          <h2 className="text-lg font-semibold tracking-tight text-fg sm:text-2xl">
+          <h2 className="text-xl font-semibold tracking-tight text-fg sm:text-2xl">
             About
           </h2>
         </div>
@@ -141,7 +141,7 @@ export default function HomePage() {
       <Section id="education">
         <div className="flex items-center gap-2.5">
           <GraduationCap className="h-5 w-5 text-brand-500" aria-hidden />
-          <h2 className="text-lg font-semibold tracking-tight text-fg sm:text-2xl">
+          <h2 className="text-xl font-semibold tracking-tight text-fg sm:text-2xl">
             Education
           </h2>
         </div>
@@ -174,7 +174,7 @@ export default function HomePage() {
       <Section id="experience">
         <div className="flex items-center gap-2.5">
           <Briefcase className="h-5 w-5 text-brand-500" aria-hidden />
-          <h2 className="text-lg font-semibold tracking-tight text-fg sm:text-2xl">
+          <h2 className="text-xl font-semibold tracking-tight text-fg sm:text-2xl">
             Experience
           </h2>
         </div>
@@ -249,7 +249,7 @@ export default function HomePage() {
       <Section id="projects">
         <div className="flex items-center gap-2.5">
           <Code2 className="h-5 w-5 text-brand-500" aria-hidden />
-          <h2 className="text-lg font-semibold tracking-tight text-fg sm:text-2xl">
+          <h2 className="text-xl font-semibold tracking-tight text-fg sm:text-2xl">
             Projects
           </h2>
         </div>
@@ -262,7 +262,7 @@ export default function HomePage() {
       <Section id="contact">
         <div className="flex items-center gap-2.5">
           <Mail className="h-5 w-5 text-brand-500" aria-hidden />
-          <h2 className="text-lg font-semibold tracking-tight text-fg sm:text-2xl">
+          <h2 className="text-xl font-semibold tracking-tight text-fg sm:text-2xl">
             Contact
           </h2>
         </div>
