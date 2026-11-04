@@ -70,12 +70,12 @@ export default function HomePage() {
        
         <div className="mt-8 grid items-start gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
           <Reveal>
-            <div className="relative mx-auto w-full max-w-xs pb-4 pr-4 sm:max-w-sm lg:mx-0">
+            <div className="relative mx-auto w-full max-w-[15rem] pb-4 pr-4 sm:max-w-xs lg:mx-0">
               <div
-                className="absolute bottom-0 right-0 h-[calc(100%-1rem)] w-[calc(100%-1rem)] rounded-2xl border-2 border-brand-500/30"
+                className="absolute bottom-0 right-0 h-[calc(100%-1rem)] w-[calc(100%-1rem)] rounded-3xl border-2 border-brand-500/30"
                 aria-hidden
               />
-              <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-edge bg-surface-2">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-edge bg-surface-2">
                 <Image
                   src="/images/mypic.jpg"
                   alt={site.name}
