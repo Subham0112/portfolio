@@ -67,7 +67,8 @@ export default function HomePage() {
 
       {/* About */}
       <Section id="about">
-        <div className="grid items-start gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+       
+        <div className="mt-8 grid items-start gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
           <Reveal>
             <div className="relative mx-auto w-full max-w-xs pb-4 pr-4 sm:max-w-sm lg:mx-0">
               <div
@@ -88,24 +89,20 @@ export default function HomePage() {
           </Reveal>
 
           <div className="space-y-8">
+          <div className="flex items-center gap-2.5">
+          <User className="h-5 w-5 text-brand-500" aria-hidden />
+          <h2 className="text-lg font-semibold tracking-tight text-fg sm:text-2xl">
+            About
+          </h2>
+        </div>
             <Reveal delay={0.06}>
+         
               <div className="space-y-4 text-sm leading-relaxed text-muted sm:text-base">
   <p>
    Full Stack Developer with hands on experience in developing responsive web applications and contributing to real world software projects. Skilled in building user friendly interfaces, integrating backend services, developing RESTful APIs, and working with databases. 
   </p>
   <p>
-    My core stack is React, Next.js and TypeScript on the frontend, with
-    Node.js and Express on the backend. I work with both MongoDB and
-    PostgreSQL through Prisma, and I&apos;m comfortable with JWT
-    authentication, role based access and WebSocket powered realtime
-    features.
-  </p>
-  <p>
-    I care about clean architecture, readable code and the small details
-    that make a product feel finished, like sensible loading states,
-    helpful error messages and layouts that hold up on every screen size.
-    I&apos;m completing my BCA alongside my professional work, and I keep
-    sharpening my skills by building and shipping projects end to end.
+    My core stack is React, Next.js and TypeScript on the frontend, with Node.js and Express on the backend. I work with both MongoDB and PostgreSQL through Prisma, and I&apos;m comfortable with JWT authentication, role based access and WebSocket powered realtime features.
   </p>
 </div>
             </Reveal>
@@ -144,7 +141,7 @@ export default function HomePage() {
       <Section id="education">
         <div className="flex items-center gap-2.5">
           <GraduationCap className="h-5 w-5 text-brand-500" aria-hidden />
-          <h2 className="text-xl font-semibold tracking-tight text-fg sm:text-2xl">
+          <h2 className="text-lg font-semibold tracking-tight text-fg sm:text-2xl">
             Education
           </h2>
         </div>
@@ -163,7 +160,7 @@ export default function HomePage() {
                     {entry.kind}
                   </Badge>
                 </div>
-                <p className="mt-1 text-xs leading-relaxed text-faint sm:font-mono">
+                <p className="mt-1 text-xs leading-relaxed text-faint ">
                   {entry.institution} · {entry.location}
                 </p>
                 <p className="mt-3 text-sm text-muted">{entry.period}</p>
@@ -177,7 +174,7 @@ export default function HomePage() {
       <Section id="experience">
         <div className="flex items-center gap-2.5">
           <Briefcase className="h-5 w-5 text-brand-500" aria-hidden />
-          <h2 className="text-xl font-semibold tracking-tight text-fg sm:text-2xl">
+          <h2 className="text-lg font-semibold tracking-tight text-fg sm:text-2xl">
             Experience
           </h2>
         </div>
@@ -202,12 +199,14 @@ export default function HomePage() {
                     {entry.role}
                   </h3>
                   <Badge tone={entry.current ? "success" : "brand"}>
-                    {entry.current ? "Current" : entry.type}
+                    {entry.current ? "Current" : entry.type} 
                   </Badge>
+                  <p className=" text-sm leading-relaxed text-faint ">{entry.period}</p>
+                   
                 </div>
 
-                <p className="mt-1.5 text-xs leading-relaxed text-faint sm:font-mono">
-                  {entry.company} · {entry.location} · {entry.period}
+                <p className="mt-1.5 text-xs leading-relaxed text-faint ">
+                  {entry.company} · {entry.location} 
                 </p>
 
                 <ul className="mt-4 flex flex-wrap gap-1.5">
@@ -250,7 +249,7 @@ export default function HomePage() {
       <Section id="projects">
         <div className="flex items-center gap-2.5">
           <Code2 className="h-5 w-5 text-brand-500" aria-hidden />
-          <h2 className="text-xl font-semibold tracking-tight text-fg sm:text-2xl">
+          <h2 className="text-lg font-semibold tracking-tight text-fg sm:text-2xl">
             Projects
           </h2>
         </div>
@@ -263,12 +262,12 @@ export default function HomePage() {
       <Section id="contact">
         <div className="flex items-center gap-2.5">
           <Mail className="h-5 w-5 text-brand-500" aria-hidden />
-          <h2 className="text-xl font-semibold tracking-tight text-fg sm:text-2xl">
+          <h2 className="text-lg font-semibold tracking-tight text-fg sm:text-2xl">
             Contact
           </h2>
         </div>
         <div className="mt-8 grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:gap-16">
-          <Reveal>
+          <Reveal className="min-w-0">
             <div className="rounded-2xl border border-edge bg-surface p-5 sm:p-8">
               <h3 className="text-base font-semibold tracking-tight text-fg sm:text-lg">
                 Let&apos;s work together
@@ -312,7 +311,7 @@ export default function HomePage() {
             </div>
           </Reveal>
 
-          <div className="space-y-4 sm:space-y-5">
+          <div className="min-w-0 space-y-4 sm:space-y-5">
             <Reveal delay={0.14}>
               <div className="rounded-2xl border border-edge bg-surface p-6">
                 <p className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.18em] text-faint">

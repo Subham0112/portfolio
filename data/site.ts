@@ -40,6 +40,7 @@ export const site = {
 };
 
 export const navLinks: NavLink[] = [
+  { href: "#top", label: "Home" },
   { href: "#about", label: "About" },
   { href: "#education", label: "Education" },
   { href: "#experience", label: "Experience" },

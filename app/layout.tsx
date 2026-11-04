@@ -5,6 +5,7 @@ import "./globals.css";
 import { site } from "@/data/site";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { BackToTop } from "@/components/layout/back-to-top";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -60,14 +61,15 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} dark h-full antialiased`}
       data-scroll-behavior="smooth"
+      data-theme="dark"
       suppressHydrationWarning
     >
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem("theme");var dark=t?t==="dark":true;if(dark)document.documentElement.classList.add("dark")}catch(e){document.documentElement.classList.add("dark")}})();`,
+            __html: `(function(){try{var valid=["dark","forest","white","purple","orange"];var t=localStorage.getItem("theme");if(t==="light")t="white";if(valid.indexOf(t)===-1)t="dark";var el=document.documentElement;el.setAttribute("data-theme",t);el.classList.toggle("dark",t==="dark")}catch(e){document.documentElement.setAttribute("data-theme","dark");document.documentElement.classList.add("dark")}})();`,
           }}
         />
       </head>
@@ -85,6 +87,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           </main>
           <Footer />
         </div>
+        <BackToTop />
       </body>
     </html>
   );

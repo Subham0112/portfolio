@@ -2,7 +2,6 @@
 
 import { useMemo, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
 import type { Project, ProjectCategory } from "@/data/projects";
 import { projectCategories } from "@/data/projects";
 import { ProjectCard } from "@/components/project/project-card";
@@ -52,7 +51,7 @@ export function ProjectsGrid({ projects }: ProjectsGridProps) {
       {filtered.length > 0 ? (
         <motion.ul
           layout={reduceMotion ? false : true}
-          className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+          className="mt-10 grid gap-6 md:grid-cols-2"
         >
           <AnimatePresence mode="popLayout" initial={false}>
             {filtered.map((project) => (

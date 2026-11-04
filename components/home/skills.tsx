@@ -51,7 +51,7 @@ export function Skills() {
     <>
       <div className="flex items-center gap-2.5">
         <Code2 className="h-5 w-5 text-brand-500" aria-hidden />
-        <h2 className="text-xl font-semibold tracking-tight text-fg sm:text-2xl">
+        <h2 className="text-lg font-semibold tracking-tight text-fg sm:text-2xl">
           Skills
         </h2>
       </div>

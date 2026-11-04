@@ -52,7 +52,7 @@ export const projects: Project[] = [
       "JWT",
     ],
     features: [
-      "Developed a full-stack social media platform with proper authentication and protected routes",
+      "Developed a full stack social media platform with proper authentication and protected routes",
       "Post feed with like, comment and Add Friend /Unfriend interactions",
       "Realtime 1:1 chat with typing indicators and read receipts",
       "Profile pages, image uploads and search across users and posts."
@@ -70,7 +70,7 @@ export const projects: Project[] = [
     name: "DriveMe",
     tagline: "A ride-booking flow with live trip tracking for riders and drivers.",
     description:
-      "Ride-booking application with driver/rider role flows, fare estimates, and live location tracking through the full ride lifecycle.",
+      "Ride-booking application with driver/passenger role flows, fare estimates, and live location tracking through the full ride lifecycle.",
     category: "full-stack",
     tone: "indigo",
     image: "/images/driveme.png",
@@ -91,11 +91,11 @@ export const projects: Project[] = [
       "Rider and driver onboarding with KYC-style document uploads",
       "Fare estimation from route distance and duration",
       "Ride lifecycle state machine: requested, accepted, in-progress, completed",
-      "Live location sharing between rider and driver during trips",
+      "Live location sharing between rider and passanger during trips",
       "Ride history and trip receipts for both sides",
     ],
     about: [
-      "DriveMe is a ride-booking platform in active development. It models the full trip lifecycle — a rider requests a ride, nearby drivers receive it in realtime, and both sides track the trip live until completion.",
+      "DriveMe is a ride-booking platform in active development. It models the full trip lifecycle; a passanger requests a ride, nearby drivers receive it in realtime, and both sides track the trip live until completion.",
      
     ],
     liveUrl: "https://drive-me-zjj2-d97y2iv68-subham-khatiwadas-projects.vercel.app/",
