@@ -98,7 +98,7 @@ export const projects: Project[] = [
       "DriveMe is a ride-booking platform in active development. It models the full trip lifecycle; a passanger requests a ride, nearby drivers receive it in realtime, and both sides track the trip live until completion.",
      
     ],
-    liveUrl: "https://drive-me-zjj2-d97y2iv68-subham-khatiwadas-projects.vercel.app/",
+    liveUrl: "https://drive-me-zjj2-tau.vercel.app/",
     sourceUrl: "https://github.com/Subham0112/DriveMe",
     placeholderNote:
       "Add your deployed URL to liveUrl in data/projects.ts to enable the demo link.",
