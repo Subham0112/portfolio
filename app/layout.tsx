@@ -63,13 +63,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} dark h-full antialiased`}
       data-scroll-behavior="smooth"
-      data-theme="dark"
+      data-theme="forest"
       suppressHydrationWarning
     >
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var valid=["dark","forest","purple","orange"];var t=localStorage.getItem("theme");if(t==="light"||t==="white")t="dark";if(valid.indexOf(t)===-1)t="dark";var el=document.documentElement;el.setAttribute("data-theme",t);el.classList.add("dark")}catch(e){document.documentElement.setAttribute("data-theme","dark");document.documentElement.classList.add("dark")}})();`,
+            __html: `(function(){try{var valid=["dark","forest","purple","orange"];var t=localStorage.getItem("theme");if(t==="light"||t==="white")t="forest";if(valid.indexOf(t)===-1)t="forest";var el=document.documentElement;el.setAttribute("data-theme",t);el.classList.add("dark")}catch(e){document.documentElement.setAttribute("data-theme","forest");document.documentElement.classList.add("dark")}})();`,
           }}
         />
       </head>

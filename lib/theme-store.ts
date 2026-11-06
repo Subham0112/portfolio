@@ -9,16 +9,16 @@ export interface ThemeOption {
 
 export const themes: ThemeOption[] = [
   {
-    id: "dark",
-    label: "Dark",
-    hint: "Midnight teal",
-    swatches: ["#09090b", "#18181b", "#2dd4bf"],
-  },
-  {
     id: "forest",
     label: "Forest",
     hint: "Sage forest",
     swatches: ["#0c1511", "#111d17", "#93bf8f"],
+  },
+  {
+    id: "dark",
+    label: "Dark",
+    hint: "Midnight teal",
+    swatches: ["#09090b", "#18181b", "#2dd4bf"],
   },
   {
     id: "purple",
@@ -34,7 +34,7 @@ export const themes: ThemeOption[] = [
   },
 ];
 
-export const defaultTheme: Theme = "dark";
+export const defaultTheme: Theme = "forest";
 
 type Listener = () => void;
 
