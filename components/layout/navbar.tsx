@@ -317,14 +317,7 @@ export function Navbar() {
                           )}
                         >
                           <span>{link.label}</span>
-                          <span
-                            className={cn(
-                              "font-mono text-xs",
-                              isActive ? "text-brand-600 dark:text-brand-400" : "text-faint",
-                            )}
-                          >
-                            0{index + 1}
-                          </span>
+                         
                         </Link>
                       </li>
                     );

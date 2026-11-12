@@ -15,7 +15,7 @@ export const site = {
   name: "Subham",
   role: "Full-Stack Developer",
   tagline:
-    "I design and build complete web applications — from database schema to polished, responsive interfaces.",
+    "I design and build complete web applications from database schema to polished, responsive interfaces.",
   shortBio:
     "Full-stack developer focused on clean, working software, web applications — realtime features, REST APIs, and carefully-built interfaces.",
   email: "khatiwadasubham1@gmail.com",
